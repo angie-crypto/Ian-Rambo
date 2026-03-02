@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultra Mini Dash Game</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f0f0f0; margin: 0; padding: 20px; }
+        #game { width: 400px; height: 300px; position: relative; background-color: #fff; overflow: hidden; border: 1px solid #ccc; }
+        .character { width: 30px; height: 30px; background-color: red; position: absolute; }
+        .obstacle { width: 30px; height: 30px; background-color: green; position: absolute; }
+    </style>
+</head>
+<body>
+    <h1>Ultra Mini Dash Game</h1>
+    <div id="game"></div>
+    <script>
+        const gameArea = document.getElementById('game');
+        const character = document.createElement('div');
+        character.className = 'character';
+        gameArea.appendChild(character);
+        character.style.left = '10px';
+        character.style.bottom = '10px';
+
+        // Simple game logic
+        document.addEventListener('keydown', (event) => {
+            const left = parseInt(window.getComputedStyle(character).getPropertyValue('left'));
+            if (event.key === 'ArrowRight') {
+                character.style.left = left + 10 + 'px';
+            } else if (event.key === 'ArrowLeft') {
+                character.style.left = left - 10 + 'px';
+            }
+        });
+        // Add more game logic and obstacles
+    </script>
+</body>
+</html>
