@@ -1,37 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ultra Mini Dash Game</title>
     <style>
-        body { font-family: Arial, sans-serif; background-color: #f0f0f0; margin: 0; padding: 20px; }
-        #game { width: 400px; height: 300px; position: relative; background-color: #fff; overflow: hidden; border: 1px solid #ccc; }
-        .character { width: 30px; height: 30px; background-color: red; position: absolute; }
-        .obstacle { width: 30px; height: 30px; background-color: green; position: absolute; }
+        body { font-family: Arial, sans-serif; }
+        #gameCanvas { border: 1px solid black; }
     </style>
 </head>
 <body>
-    <h1>Ultra Mini Dash Game</h1>
-    <div id="game"></div>
+    <h1>Welcome to the Ultra Mini Dash Game!</h1>
+    <canvas id="gameCanvas" width="400" height="300"></canvas>
     <script>
-        const gameArea = document.getElementById('game');
-        const character = document.createElement('div');
-        character.className = 'character';
-        gameArea.appendChild(character);
-        character.style.left = '10px';
-        character.style.bottom = '10px';
+        // Game logic goes here
+        var canvas = document.getElementById('gameCanvas');
+        var ctx = canvas.getContext('2d');
 
-        // Simple game logic
-        document.addEventListener('keydown', (event) => {
-            const left = parseInt(window.getComputedStyle(character).getPropertyValue('left'));
-            if (event.key === 'ArrowRight') {
-                character.style.left = left + 10 + 'px';
-            } else if (event.key === 'ArrowLeft') {
-                character.style.left = left - 10 + 'px';
-            }
-        });
-        // Add more game logic and obstacles
+        // Example: drawing a rectangle
+        ctx.fillStyle = '#00F';
+        ctx.fillRect(50, 50, 100, 100);
+
+        // More game code to implement functionality
     </script>
 </body>
 </html>
